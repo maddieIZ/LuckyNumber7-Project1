@@ -1,13 +1,80 @@
 # LuckyNumber7-Project1
 
-Pulling Data
+## Our Questions:
+Our Group asked the following questions:
+Is there a meaningful relationship between key:
+1.	Commodity and Stock Market Indicators
+2.	Currency and Stock Market Indicators
+3.	Commodity and Currency Market Indicators
 
-00_ This file was created in order to scrape the data via API.  We pulled in all necessary data and put it into a data frame, this was exported to excel in order to pass it to the next module
+## Why did we ask these Questions?
+In the news / media, we often hear “experts” talking about these relationships. We wanted to verify for ourselves, using actual data, and the tools we have learnt in this class, whether these relationships do exist?
 
-Data Frames / Scrubbing
+## Guideline we used for determining a meaningful R-Squared:
+We used the guidelines published on the following website:
+https://condor.depaul.edu/sjost/it223/documents/correlation.htm
+Economics is a social science and based on the guidelines on this website, an R-Squared of > 0.35 is considered meaningful.  
+We ran Linear Regressions in our Analysis and used the R-Squared of 0.35 as the cut-off for a meaningful R-Squared.
 
-01_ This jupyter notebook was created in order to scrub, and clean the data.  We brought the data into excel, and kicked out all things that did not make sense.  For example, we had "." that was pulled down instead of Null.  These issues, as well as null values were removed from the dataframe.  Finally, we made sure that the dataframe structure was consistent and that the columns were the right format in order to do some math on it.  Additionally, we created percentage changes in order to normalize the data
+## Were we able to answer our Questions?
+Yes, we believe we were able to answer our questions.
+We reviewed the past 10 years of data for the following:
 
-Analysis / Plotting
+### 1. Commodity Market and Stock Market Indicators:
+A)	Brent Crude vs Dow Jones Industrial Average:
+When we look at the entire period (2010-2020) as a whole, the R-Squared was not meaningful.
+When we look at each year individually, the R-Squared was meaningful for the following years:
+2010, 2014, 2016, 2017, 2020
+B)	Gold vs Dow Jones Industrial Average:
+When we look at the entire period (2010-2020) as a whole, the R-Squared was not meaningful.
+When we look at each year individually, the R-Squared was meaningful for the following years:
+2013, 2019, 2020
 
-02_ This notebook was created in order to plot the data.  We created a function that we could pass necessary items to inorder to do a traditional x y linear regression.  Additionally, we wanted to go into the rabbit hole of non-linear regressions.  We did a 6th order regression to see how this looks.  Each regression was limited by year in order for us to see better trends.  We found that using all time (2010 to 2020) did not have great regressions so we then again had to limit across time.
+### 2. Currency Market and Stock Market Indicators:
+Chinese Yuan / US Dollar Exchange Rate vs Dow Jones Industrial Average:
+When we look at the entire period (2010-2020) as a whole, the R-Squared was not meaningful.
+When we look at each year individually, the R-Squared was meaningful for the following years:
+2010, 2013, 2016, 2017
+
+### 3. Currency Market and Commodity Market Indicators:
+Chinese Yuan / US Dollar Exchange Rate vs Gold:
+When we look at the entire period (2010-2020) as a whole, the R-Squared was not meaningful.
+When we look at each year individually, the R-Squared was meaningful for the following years:
+2010, 2011, 2012, 2013, 2015, 2017, 2018, 2019
+
+## This repository contains the following files/folders:
+
+### 00_Extraction_with_API
+This jupyter notebook is the file we used for Data Extraction. We used it to scrape the data via an API. We pulled in all the necessary data and put it into a data frame, which was then exported to excel, to pass it to the Data Exploration and Cleanup effort.
+
+
+### 01_Exploration_and_Cleanup
+This jupyter notebook is the file we used for data exploration and cleanup.
+We loaded the data exported from the 00_Extraction_with_API jupyter notebook file. We examined the data and then we “cleaned” the data. For example, we had "." instead of Null in many cells. These issues, as well as null values were removed from the dataframe. We also made sure that the dataframe structure was consistent and that the columns were in the right format, for us to do some math on it. We then created percentage changes in order to normalize the data. Finally, we exported the data to excel to pass it to the Analysis effort
+
+
+### 02_Analysis
+This jupyter notebook file was created to analyze the data, and generate scatter plots with their regression equation lines and R-Squareds. We loaded the data exported by the 01_Exploration_and_Cleanup jupyter notebook file. We created a function that we could use, whereby we pass the necessary inputs  to do a traditional x y linear regression. We also wanted to go down the rabbit hole of non-linear regressions. So, we ran a 6th order polynomial regression for 2 of the relationships. We exported images of all the scatter plots. 
+
+### Project_01_Group_07_TUES_THURS
+This is a detailed PowerPoint presentation file that walks through our questions, our approach, our analysis and our findings. 
+
+### Output
+This is a folder that contains the excel files generated from the 00_Extraction_with_API and the 01_Exploration_and_Cleanup jupyter notebook files. This folder also contains the scatter plots that were generated by the regressions we ran using the 02_Analysis jupyter notebook file.
+There are 50 images in total:
+### 48 Linear Regression Scatter Plots.
+#### Brent Crude vs Dow Jones Industrial Average:
+1 for the entire time period (2010-2020).
+11 for each individual year from 2010 to 2020.
+#### Gold vs Dow Jones Industrial Average:
+1 for the entire time period (2010-2020).
+11 for each individual year from 2010 to 2020.
+#### Chinese Yuan / US Dollar vs Dow Jones Industrial Average:
+1 for the entire time period (2010-2020).
+11 for each individual year from 2010 to 2020.
+#### Chinese Yuan / US Dollar vs Gold:
+1 for the entire time period (2010-2020).
+11 for each individual year from 2010 to 2020.
+### 2 6th order Polynomial Regression Scatter Plots.
+1 for Brent Crude vs Dow Jones Industrial Average (for a subset of the data).
+1 for Gold vs Dow Jones Industrial Average (for a subset of the data).
